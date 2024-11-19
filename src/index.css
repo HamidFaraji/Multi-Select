@@ -50,8 +50,8 @@
     --font-size-lg: 16px;
     --font-size-xl: 24px;
 
-    --font-weight-regular: 400px;
-    --font-weight-medium: 500px;
-    --font-weight-bold: 700px;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
   }
 }

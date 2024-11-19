@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--typeface)'],
+      },
       colors: {
         'forground': 'var(--color-forground)',
         'danger': 'var(--color-danger)',
@@ -35,21 +38,21 @@ export default {
         'xs': 'var(--cornder-radius-xs)',
         's': 'var(--cornder-radius-s)',
         'm': 'var(--cornder-radius-m)',
-        'l': 'var(--cornder-radius-l)',
+        'lg': 'var(--cornder-radius-l)',
         'xl': 'var(--cornder-radius-xl)',
       },
       lineHeight: {
         'xs': 'var(--line-height-xs)',
         's': 'var(--line-height-s)',
         'm': 'var(--line-height-m)',
-        'l': 'var(--line-height-l)',
+        'lg': 'var(--line-height-l)',
         'xl': 'var(--line-height-xl)',
       },
       fontSize: {
         'xs': 'var(--font-size-xs)',
         's': 'var(--font-size-s)',
         'm': 'var(--font-size-m)',
-        'l': 'var(--font-size-l)',
+        'lg': 'var(--font-size-l)',
         'xl': 'var(--font-size-xl)',
       },
       fontWeight: {

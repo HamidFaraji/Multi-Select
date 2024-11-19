@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'saba-idea-icons';
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url('../../assets/fonts/saba-idea-icons.woff') format('woff');
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'saba-idea-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-circle:before {
+  content: "\e900";
+}
+.icon-close:before {
+  content: "\e901";
+}
+.icon-chevron-down:before {
+  content: "\e902";
+}
+.icon-chevron-up:before {
+  content: "\e903";
+}
