@@ -1,0 +1,16 @@
+.dropdown {
+  @apply relative;
+}
+
+.dropdown__toggler {
+  @apply cursor-pointer;
+}
+
+.dropdown__content {
+  @apply flex flex-col p-4 mt-2 bg-forground w-full border absolute rounded-md shadow-sm z-10 list-none gap-3;
+  visibility: hidden;
+}
+
+.dropdown--open .dropdown__content {
+  visibility: visible;
+}
