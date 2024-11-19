@@ -1,0 +1,15 @@
+.chip {
+  @apply flex items-center p-3 bg-grascale-2 rounded-s;
+}
+
+.chip__label {
+  @apply inline-block mx-3 text-s;
+}
+
+.chip__remove {
+  @apply flex items-center text-label-seconday cursor-default rounded-xs;
+}
+
+.chip__remove--clickable {
+  @apply cursor-pointer hover:bg-forground hover:text-label-primary;
+}

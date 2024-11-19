@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './Icon.css';
 
-type IconNames = 'chevron-down' | 'chevron-up' | 'close' | 'circle';
+export type IconNames = 'chevron-down' | 'chevron-up' | 'close' | 'circle';
 
 interface IconProps {
   size?: number;
