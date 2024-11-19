@@ -1,0 +1,11 @@
+.list {
+  @apply flex p-5 text-lg cursor-pointer rounded-s hover:bg-grascale-1;
+}
+
+.list__label {
+  @apply inline-block flex-1;
+}
+
+.list--selected {
+  @apply bg-grascale-2;
+}
