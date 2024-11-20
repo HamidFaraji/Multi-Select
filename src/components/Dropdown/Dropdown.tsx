@@ -1,37 +1,46 @@
-import { FC, ReactNode, useCallback, useRef, useState } from 'react';
+import { FC, ReactNode, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import './Dropdown.css';
 
 interface DropdownProps {
-  taoggler: ReactNode;
   children: ReactNode;
+  toggler: ReactNode;
+  open: boolean;
+  onOpen: () => void;
+  onClose: () => void;
 }
 
-export const Dropdown: FC<DropdownProps> = ({ taoggler, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Dropdown: FC<DropdownProps> = ({ children, toggler, open, onOpen, onClose }) => {
   const [dropdownContentTop, setDropdownContentTop] = useState(0);
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const togglerRef = useRef<HTMLDivElement>(null);
 
-  const handleDropdownToggle = useCallback((open: boolean) => {
+  const handleDropdownClick = useCallback((event: MouseEvent) => {
+    event.stopPropagation();
     setDropdownContentTop((togglerRef.current?.offsetHeight || 0) + 4);
-    setIsOpen(open);
+    onOpen();
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.addEventListener('click', onClose);
+
+    return () => {
+      document.documentElement.removeEventListener('click', onClose)
+    }
   }, []);
 
   return (
     <div
-      ref={dropdownRef}
       className={classNames('dropdown', {
-        'dropdown--open': isOpen,
+        'dropdown--open': open,
       })}
+      onClick={handleDropdownClick}
     >
       <div
         className="dropdown__toggler"
         ref={togglerRef}
-        onClick={() => handleDropdownToggle(true)}
       >
-        {taoggler}
+        {toggler}
       </div>
       <div
         className="dropdown__content"
