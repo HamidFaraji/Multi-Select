@@ -7,3 +7,4 @@ export { List } from './List/List';
 export { Dropdown } from './Dropdown/Dropdown';
 export { Divider } from './Divider/Divider';
 export { MultiSelect } from './MultiSelect/MultiSelect';
+export { MainProvider, MainContext } from './Context/Context';
