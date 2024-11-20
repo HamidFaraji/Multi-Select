@@ -1,0 +1,11 @@
+.divider {
+  @apply bg-grascale-2;
+}
+
+.divider--vertical {
+  @apply w-2 my-2;
+}
+
+.divider--horizontal {
+  @apply h-2 mx-2;
+}

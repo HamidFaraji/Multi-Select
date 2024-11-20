@@ -5,3 +5,5 @@ export { IconButton } from './IconButton/IconButton';
 export { Chip } from './Chip/Chip';
 export { List } from './List/List';
 export { Dropdown } from './Dropdown/Dropdown';
+export { Divider } from './Divider/Divider';
+export { MultiSelect } from './MultiSelect/MultiSelect';
