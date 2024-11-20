@@ -1,50 +1,87 @@
-# React + TypeScript + Vite
+# MultiSelect Component:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The MultiSelect component is a customizable, reusable, and interactive multi-select dropdown with options to add custom items and reset selections.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Select multiple options from a predefined list.
+- Optionally add custom items if not found in the options list.
+- Reset selections with a single click.
+- Filter options dynamically as the user types.
+- Handles keyboard interactions. (Enter for adding new item and Backsapce for delete last item).
+- Lightmode and Darkmode.
 
-## Expanding the ESLint configuration
+## Demo:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+To see demo of the component run following commands in your terminal and root of the project
+```bash
+yarn install
+yarn dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Props:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+| Prop Name        | Type                           | Default            | Required | Description                                                                                                                                  |
+| ---------------- | ------------------------------ | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `allowReset`   | `boolean`                    | `false`          | No       | Enables a reset button to clear selected items.                                                                                              |
+| `allowAddItem` | `boolean`                    | `false`          | No       | Allows users to add custom items not present in the predefined options. If this prop is set to false component show an empty state component |
+| `placeholder`  | `string`                     | `''`             | No       | Placeholder text displayed in the input field.                                                                                               |
+| `defaultValue` | `Option[]`                   | `[]`             | No       | The default selected items when the component initializes.                                                                                   |
+| `options`      | `Option[]`                   | **Required** | Yes      | A list of options available for selection. Each option has `value` and `label`.                                                          |
+| `onChange`     | `(values: Option[]) => void` | `undefined`      | No       | Callback function triggered when the selected items change.                                                                                  |
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Option Object:
+
+The Option interface defines the shape of each option object:
+
+```typescript
+interface Option {
+  value: string; // Unique identifier for the option
+  label: string; // Display text for the option
+}
+```
+
+## Usage:
+
+```tsx
+import React from 'react';
+import { MultiSelect } from './MultiSelect';
+
+const options = [
+  { value: '1', label: 'Option 1' },
+  { value: '2', label: 'Option 2' },
+  { value: '3', label: 'Option 3' },
+];
+
+const App = () => {
+  const handleChange = (selected) => {
+    console.log('Selected items:', selected);
+  };
+
+  return (
+    <MultiSelect
+      allowReset={true}
+      allowAddItem={true}
+      placeholder="Select or add items..."
+      defaultValue={[{ value: '2', label: 'Option 2' }]}
+      options={options}
+      onChange={handleChange}
+    />
+  );
+};
+
+export default App;
+```
+
+## CSS (Styling)
+
+The component uses BEM for styling. You can use following classNames to make component customized.
+
+```css
+.multi-select
+.multi-select--focused
+.multi-select__box
+.multi-select__input
+.multi-select__actions
+.multi-select__empty-state
 ```
