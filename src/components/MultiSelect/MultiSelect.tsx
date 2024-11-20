@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import classNames from 'classnames';
 import { Chip, Divider, Dropdown, IconButton, List } from '@/components';
 import './MultiSelect.css';
@@ -10,15 +10,21 @@ interface Option {
 
 interface MultiSelectProps {
   allowAddItem?: boolean;
-  options: Option[];
   placeholder?: string;
+  defaultValue?: Option[];
+  options: Option[];
+  onChange?: (values: Option[]) => void;
 }
 
-export const MultiSelect: React.FC<MultiSelectProps> = ({ allowAddItem, placeholder, options }) => {
+export const MultiSelect: React.FC<MultiSelectProps> = ({ allowAddItem, placeholder, defaultValue = [], options, onChange }) => {
   const [inputValue, setInputValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedItems, setSelectedItems] = useState<Option[]>([]);
+  const [selectedItems, setSelectedItems] = useState<Option[]>(defaultValue);
   const [filteredOptions, setFilteredOptions] = useState<Option[]>(options);
+
+  useEffect(() => {
+    onChange?.(selectedItems);
+  }, [selectedItems]);
 
   const handleItemAdd = useCallback(() => {
     if (allowAddItem) {
