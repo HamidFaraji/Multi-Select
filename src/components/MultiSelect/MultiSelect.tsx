@@ -9,32 +9,35 @@ interface Option {
 }
 
 interface MultiSelectProps {
+  allowAddItem?: boolean;
   options: Option[];
   placeholder?: string;
 }
 
-export const MultiSelect: React.FC<MultiSelectProps> = ({ placeholder, options }) => {
+export const MultiSelect: React.FC<MultiSelectProps> = ({ allowAddItem, placeholder, options }) => {
   const [inputValue, setInputValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState<Option[]>([]);
   const [filteredOptions, setFilteredOptions] = useState<Option[]>(options);
 
   const handleItemAdd = useCallback(() => {
-    const isExistInOptions = options.some(option => option.label === inputValue);
-    const isExistInSelectedItems = selectedItems.some(option => option.label === inputValue);
+    if (allowAddItem) {
+      const isExistInOptions = options.some(option => option.label === inputValue);
+      const isExistInSelectedItems = selectedItems.some(option => option.label === inputValue);
 
-    if (!isExistInOptions && !isExistInSelectedItems) {
-      setSelectedItems((prevItems) => {
-        const newItem: Option = {
-          value: inputValue,
-          label: inputValue
-        };
+      if (!isExistInOptions && !isExistInSelectedItems) {
+        setSelectedItems((prevItems) => {
+          const newItem: Option = {
+            value: inputValue,
+            label: inputValue
+          };
 
-        return [...prevItems, newItem];
-      });
-      setInputValue('');
-      setFilteredOptions(options);
-      setIsDropdownOpen(false);
+          return [...prevItems, newItem];
+        });
+        setInputValue('');
+        setFilteredOptions(options);
+        setIsDropdownOpen(false);
+      }
     }
   }, [selectedItems, inputValue, options]);
 
@@ -132,11 +135,15 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({ placeholder, options }
             label={option.label}
             onClick={() => handleItemSelect(option)}
           />
-        ))) : (
+        ))) : allowAddItem ? (
           <List
             label={`Create "${inputValue}"`}
             onClick={() => handleItemAdd()}
           />
+        ) : (
+          <div className="multi-select__empty-state">
+            No items found.
+          </div>
         )}
       </Dropdown>
     </div>

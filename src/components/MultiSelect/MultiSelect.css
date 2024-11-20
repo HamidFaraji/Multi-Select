@@ -8,11 +8,15 @@
 }
 
 .multi-select__input {
-  @apply p-3 flex-1 outline-0 min-w-20 bg-transparent;
+  @apply p-3 flex-1 outline-0 min-w-20 bg-transparent text-label-primary;
+}
+
+.multi-select__input::placeholder {
+  @apply text-label-secondary;
 }
 
 .multi-select__empty-state {
-  @apply p-2 text-center text-gray-500;
+  @apply p-5 text-center text-label-primary;
 }
 
 .multi-select__actions {
