@@ -9,6 +9,7 @@ interface Option {
 }
 
 interface MultiSelectProps {
+  allowReset?: boolean;
   allowAddItem?: boolean;
   placeholder?: string;
   defaultValue?: Option[];
@@ -16,7 +17,7 @@ interface MultiSelectProps {
   onChange?: (values: Option[]) => void;
 }
 
-export const MultiSelect: React.FC<MultiSelectProps> = ({ allowAddItem, placeholder, defaultValue = [], options, onChange }) => {
+export const MultiSelect: React.FC<MultiSelectProps> = ({ allowAddItem, allowReset, placeholder, defaultValue = [], options, onChange }) => {
   const [inputValue, setInputValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState<Option[]>(defaultValue);
@@ -121,11 +122,15 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({ allowAddItem, placehol
               onKeyDown={handleInputKeyDown}
             />
             <div className="multi-select__actions">
-              <IconButton
-                icon="close"
-                onClick={handleResetButtonClick}
-              />
-              <Divider direction="vertical" />
+              {allowReset && (
+                <>
+                  <IconButton
+                    icon="close"
+                    onClick={handleResetButtonClick}
+                  />
+                  <Divider direction="vertical" />
+                </>
+              )}
               <IconButton
                 icon="chevron-down"
               />

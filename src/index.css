@@ -75,4 +75,8 @@
     --color-label-tertiary: #4D4D4D;
     --color-label-quaternary: #333333;
   }
+
+  :root {
+    background-color: var(--color-forground);
+  }
 }

@@ -5,6 +5,7 @@
 
 .multi-select__box {
   @apply p-5 w-full border border-grayscale-2 flex flex-wrap gap-4 rounded-m transition duration-300;
+  padding-right: 102px;
 }
 
 .multi-select__input {
@@ -20,7 +21,7 @@
 }
 
 .multi-select__actions {
-  @apply flex gap-4 self-center;
+  @apply p-2 flex gap-4 self-center absolute top-6 right-6;
 }
 
 .multi-select--focused .multi-select__box {
