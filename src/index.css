@@ -2,26 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer base {  
   :root {
     --typeface: 'Inter';
-
-    --color-forground: #FFFFFF;
-
-    --color-danger: #FF2137;
-    --color-warning: #FFD607;
-    --color-success: #1D9E62;
-    --color-information: #0099FF;
-
-    --color-grascale-1: #F5F5F5;
-    --color-grascale-2: #E7E7E7;
-    --color-grascale-3: #C2C2C2;
-    --color-grascale-4: #ADADAD;
-
-    --color-label-primary: #1A1A1A;
-    --color-label-seconday: #666666;
-    --color-label-tertiary: #B2B2B2;
-    --color-label-quaternary: #CCCCCC;
 
     --spacing-1: 1px;
     --spacing-2: 2px;
@@ -53,5 +36,43 @@
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
+  }
+
+  :root.light {
+    --color-forground: #FFFFFF;
+
+    --color-danger: #FF2137;
+    --color-warning: #FFD607;
+    --color-success: #1D9E62;
+    --color-information: #0099FF;
+
+    --color-grayscale-1: #F5F5F5;
+    --color-grayscale-2: #E7E7E7;
+    --color-grayscale-3: #C2C2C2;
+    --color-grayscale-4: #ADADAD;
+
+    --color-label-primary: #1A1A1A;
+    --color-label-secondary: #666666;
+    --color-label-tertiary: #B2B2B2;
+    --color-label-quaternary: #CCCCCC;
+  }
+
+  :root.dark {
+    --color-forground: #000000;
+
+    --color-danger: #DC3545;
+    --color-warning: #FFD607;
+    --color-success: #1EDD84;
+    --color-information: #3A89FD;
+
+    --color-grayscale-1: #0A0A0A;
+    --color-grayscale-2: #141414;
+    --color-grayscale-3: #292929;
+    --color-grayscale-4: #525252;
+
+    --color-label-primary: #E5E5E5;
+    --color-label-secondary: #999999;
+    --color-label-tertiary: #4D4D4D;
+    --color-label-quaternary: #333333;
   }
 }

@@ -1,6 +1,7 @@
 import { FC, MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import { Icon, IconNames } from '@/components';
+import './IconButton.css';
 
 interface IconButtonProps {
   className?: string;

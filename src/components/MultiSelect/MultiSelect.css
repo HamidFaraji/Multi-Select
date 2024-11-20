@@ -4,11 +4,11 @@
 }
 
 .multi-select__box {
-  @apply p-5 w-full border border-grascale-2 flex flex-wrap gap-4 rounded-m transition duration-300;
+  @apply p-5 w-full border border-grayscale-2 flex flex-wrap gap-4 rounded-m transition duration-300;
 }
 
 .multi-select__input {
-  @apply p-3 flex-1 outline-0 min-w-20;
+  @apply p-3 flex-1 outline-0 min-w-20 bg-transparent;
 }
 
 .multi-select__empty-state {
@@ -20,5 +20,5 @@
 }
 
 .multi-select--focused .multi-select__box {
-  @apply border-grascale-3;
+  @apply border-grayscale-3;
 }

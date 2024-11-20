@@ -1,5 +1,5 @@
 .divider {
-  @apply bg-grascale-2;
+  @apply bg-grayscale-2;
 }
 
 .divider--vertical {

@@ -1,0 +1,3 @@
+.icon-button {
+  @apply flex items-center text-label-secondary;
+}

@@ -1,11 +1,11 @@
 .list {
-  @apply flex p-5 text-lg cursor-pointer rounded-s hover:bg-grascale-1;
+  @apply flex p-5 text-lg cursor-pointer rounded-s transition duration-300 hover:bg-grayscale-1;
 }
 
 .list__label {
-  @apply inline-block flex-1;
+  @apply inline-block flex-1 text-label-primary;
 }
 
 .list--selected {
-  @apply bg-grascale-2;
+  @apply bg-grayscale-2;
 }

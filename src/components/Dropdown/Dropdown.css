@@ -7,7 +7,7 @@
 }
 
 .dropdown__content {
-  @apply flex flex-col p-4 mt-2 bg-forground w-full border absolute rounded-md shadow-sm z-10 list-none gap-3 invisible opacity-0 translate-y-12 transition duration-300;
+  @apply flex flex-col p-4 mt-2 bg-forground w-full border border-grayscale-2 absolute rounded-md shadow-sm z-10 list-none gap-3 invisible opacity-0 translate-y-12 transition duration-300;
 }
 
 .dropdown--open .dropdown__content {
