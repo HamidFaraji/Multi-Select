@@ -1,13 +1,13 @@
-import { FC } from 'react';
-import { Icon } from '@/components';
-import type { IconNames } from '@/components';
+import { FC, MouseEventHandler } from 'react';
 import classNames from 'classnames';
+import { IconButton } from '@/components';
+import type { IconNames } from '@/components';
 import './Chip.css';
 
 interface ChipProps {
   label: string;
   icon?: IconNames;
-  onIconClick?: () => void;
+  onIconClick?: MouseEventHandler;
 }
 
 export const Chip: FC<ChipProps> = ({ label, icon = 'circle', onIconClick }) => {
@@ -17,14 +17,13 @@ export const Chip: FC<ChipProps> = ({ label, icon = 'circle', onIconClick }) => 
         {label}
       </span>
       {(onIconClick || icon) && (
-        <button
+        <IconButton
+          icon={icon}
           className={classNames('chip__remove', {
             'chip__remove--clickable': !!onIconClick,
           })}
-          onClick={() => onIconClick?.()}
-        >
-          <Icon name={icon} size={18} />
-        </button>
+          onClick={onIconClick}
+        />
       )}
     </span>
   );
